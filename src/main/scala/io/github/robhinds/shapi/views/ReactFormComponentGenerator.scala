@@ -3,7 +3,7 @@ package io.github.robhinds.shapi.views
 import io.github.robhinds.shapi.utils.ComponentUtils.{booleanDropDown, documentField}
 import shapeless.{HList, LabelledGeneric}
 
-trait FormComponentGenerator {
+trait ReactFormComponentGenerator {
 
   implicit def intFormComponent: ReactComponentGenerator[Int] =  (name: String) => documentField(name, false)
   implicit def stringFormComponent: ReactComponentGenerator[String] = (name: String) =>  documentField(name)
@@ -13,7 +13,7 @@ trait FormComponentGenerator {
     (inner: String) => s"""
         |import React, { Component } from 'react';
         |import DocumentField from './DocumentField';
-        |import { ActionButton, SecondaryButton } from '../common/Button';
+        |import { ActionButton, SecondaryButton } from './common/Button';
         |
         |export default class DocumentForm extends Component {
         |  render() {
@@ -28,7 +28,6 @@ trait FormComponentGenerator {
         |          <div className="container">
         |            <ActionButton text="Save" onClick={() => null}  disabled={!this.props.dirty}/>
         |            <SecondaryButton text="Cancel" to="/documents" />
-        |            <SecondaryButton text="Reset" onClick={this.props.resetForm} disabled={!this.props.dirty}/>
         |          </div>
         |        </footer>
         |      </div>
@@ -39,4 +38,5 @@ trait FormComponentGenerator {
 
 }
 
-object FormComponentGenerator extends FormComponentGenerator
+
+object ReactFormComponentGenerator extends ReactFormComponentGenerator

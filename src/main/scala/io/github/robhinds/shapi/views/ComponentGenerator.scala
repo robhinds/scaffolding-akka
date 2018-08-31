@@ -56,7 +56,7 @@ object ComponentGenerator {
     tailGen: ComponentGenerator[T]
   ): ComponentGenerator[FieldType[K, H] :: T] =
     new ComponentGenerator[FieldType[K, H] :: T] {
-      override def generate = s"${headGen.value.generate}, ${tailGen.generate}"
+      override def generate = s"${headGen.value.generate}${tailGen.generate}"
     }
 
   implicit def genericToGenerator[A, Repr <: HList](

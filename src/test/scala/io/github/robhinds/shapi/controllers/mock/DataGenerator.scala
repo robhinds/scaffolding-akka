@@ -5,6 +5,7 @@ import io.github.robhinds.akkops.model.core.Response.{Response, success}
 import io.github.robhinds.shapi.services.GenericDomainService
 
 import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
 
 object DataGenerator {
 

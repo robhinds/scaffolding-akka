@@ -8,6 +8,7 @@ resolvers += "Robs bintray" at "https://dl.bintray.com/robhinds/snapshots"
 
 enablePlugins(ScalaJSPlugin)
 enablePlugins(ScalaJSBundlerPlugin)
+enablePlugins(SbtTwirl)
 scalaJSUseMainModuleInitializer := true
 
 libraryDependencies += "com.github.japgolly.scalajs-react" %%% "core" % "1.2.3"

@@ -4,6 +4,7 @@ import akka.http.scaladsl.server.Route
 import akka.http.scaladsl.testkit.ScalatestRouteTest
 import org.scalatest.{FlatSpec, Matchers}
 import mock.DataGenerator._
+import io.circe.generic.auto._
 
 
 class GenericDomainControllerSpec extends FlatSpec with Matchers with ScalatestRouteTest {
