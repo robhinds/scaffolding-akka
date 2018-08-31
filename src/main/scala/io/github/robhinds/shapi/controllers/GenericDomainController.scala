@@ -20,12 +20,12 @@ class GenericDomainController[A: Encoder : ClassTag, B: ConvertibleId] {
   private val domainClassName = classTag[A].runtimeClass.getSimpleName
 
   def listRoute(implicit ee: Encoder[ErrorResponse], te: Encoder[Seq[A]]): Route =
-    getPath(s"${domainClassName}") {
+    getPath(s"$domainClassName") {
       respond(service.list)
     }
 
   def getRoute(implicit ee: Encoder[ErrorResponse], c: ConvertibleId[B]): Route =
-    getPath(s"${domainClassName}" / Segment ) { id =>
+    getPath(s"$domainClassName" / Segment ) { id =>
       respond(service.get(c.toId(id)))
     }
 
