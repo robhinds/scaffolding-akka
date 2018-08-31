@@ -7,9 +7,12 @@ object GenerateComponents extends App with GenerateUtils {
   import ComponentGenerator._
   import ReactFormComponentGenerator._
 
+  case class Simplest(number: Int)
+  case class Simpler(number: Int, working: Boolean)
   case class Simple(number: Int, working: Boolean, someText: String)
+
   build(
-    generate[Simple]
+    generate[Simpler]
   )
 
 }

@@ -25,13 +25,6 @@ export default class DocumentForm extends Component {
               options={["Yes", "No"]}
               dropdown
             />
-           <DocumentField
-             value={ this.props.someText || '' }
-             fieldId="someText"
-             fieldName="Some text"
-             onChange={newValue => this.props.onChange('someText', newValue)}
-             textarea
-           />
           </form>
         </div>
         <footer className="footer">
