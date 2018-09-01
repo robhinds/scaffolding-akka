@@ -1,4 +1,4 @@
 .idea
 target/
 project/target/
-src/main/web/node_modules/
+simple-react/src/main/web/node_modules/

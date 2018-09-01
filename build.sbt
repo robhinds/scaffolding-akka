@@ -2,20 +2,22 @@ name := "shapeless-react"
 
 version := "0.1"
 
-scalaVersion := "2.12.6"
+lazy val simpleApi = (project in file("simple-api"))
+  .settings(commonSettings: _*)
+  .settings(
+    libraryDependencies += "io.github.robhinds.akk-ops" %% "akk-ops-web" % "0.0.1",
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1"
+  )
 
-resolvers += "Robs bintray" at "https://dl.bintray.com/robhinds/snapshots"
 
-enablePlugins(ScalaJSPlugin)
-enablePlugins(ScalaJSBundlerPlugin)
-enablePlugins(SbtTwirl)
-scalaJSUseMainModuleInitializer := true
+lazy val simpleReact = (project in file("simple-react"))
+  .settings(commonSettings: _*)
+  .settings(
+    libraryDependencies += "io.github.robhinds.akk-ops" %% "akk-ops-web" % "0.0.1",
+    libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1"
+  )
 
-libraryDependencies += "com.github.japgolly.scalajs-react" %%% "core" % "1.2.3"
-
-npmDependencies in Compile ++= Seq(
-  "react" -> "16.2.0",
-  "react-dom" -> "16.2.0")
-
-libraryDependencies += "io.github.robhinds.akk-ops" %% "akk-ops-web" % "0.0.1"
-libraryDependencies += "org.scalatest" %% "scalatest" % "3.0.1"
+lazy val commonSettings = Seq(
+  scalaVersion := "2.12.6",
+  resolvers += "Robs bintray" at "https://dl.bintray.com/robhinds/snapshots"
+)
